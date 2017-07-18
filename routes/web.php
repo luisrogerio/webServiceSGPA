@@ -16,3 +16,5 @@ Route::get('/', function () {
 			'msg' => 'teste'
 		], 200);
 });
+
+Route::get('/getPlanosDeAula', 'PlanosDeAulaController@getAll');
