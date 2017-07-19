@@ -21,6 +21,7 @@ Route::prefix('planoDeAula')->group(function() {
 	Route::get('/getAll', 'PlanosDeAulaController@getAll');
 	Route::get('/save', 'PlanosDeAulaController@adicionar');
 	Route::get('/edit/{id}', 'PlanosDeAulaController@editar');
+	Route::get('/show/{id}', 'PlanosDeAulaController@visualizar');
 });
 
 Route::prefix('disciplina')->group(function() {

@@ -18,6 +18,11 @@ class PlanosDeAulaController extends Controller
     return response()->json(["planoDeAula" => $planosDeAula->toArray()], 200);
   }
 
+  public function visualizar($id){
+    $planoDeAula = $this->planoDeAula->findOrFail($id);
+    return response(["planoDeAula" => $planoDeAula], 200);
+  }
+
   public function adicionar(Request $request){
     $this->planoDeAula->create($request->all());
     return response(['message' => 'sucesso', 200]);
