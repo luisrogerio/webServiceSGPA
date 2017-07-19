@@ -15,12 +15,12 @@ class PlanosDeAulaController extends Controller
 
   public function getAll(){
     $planosDeAula = $this->planoDeAula->orderBy('titulo')->get();
-    return response()->json($planosDeAula, 200);
+    return response()->json($planosDeAula->toArray(), 200);
   }
 
   public function adicionar(Request $request){
     if($request->method('ajax')){
-      $this->planoDeAula->create(json_decode($request->all(), true);
+      $this->planoDeAula->create($request->all());
       return response(['message' => 'sucesso', 200]);
     }
   }
