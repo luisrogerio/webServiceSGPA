@@ -11,4 +11,8 @@ class Disciplina extends Model
     protected $fillable = [
         'nome'
     ];
+
+    public function subdisciplinas(){
+      $this->hasMany('App\Models\Subdisciplina', 'disciplinas_id');
+    }
 }

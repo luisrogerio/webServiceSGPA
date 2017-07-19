@@ -13,4 +13,8 @@ class PlanoDeAula extends Model
         'subtitulo',
         'descricao'
     ];
+
+    public function subdisciplinas(){
+      return $this->belongsToMany('App\Models\Subdisciplina', 'planos_de_aulas_subdisciplina', 'planos_de_aulas_id', 'subdisciplina_id');
+    }
 }

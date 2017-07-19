@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Subdisciplina;
 
-class SubsubsubdisciplinasController extends Controller
+class SubdisciplinasController extends Controller
 {
   private $subdisciplina;
 

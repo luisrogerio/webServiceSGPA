@@ -17,17 +17,32 @@ Route::get('/', function () {
 		], 200);
 });
 
-Route::group(['prefix' => 'planoDeAula'], function() {
+Route::prefix('planoDeAula')->group(function() {
 	Route::get('/getAll', 'PlanosDeAulaController@getAll');
 	Route::get('/save', 'PlanosDeAulaController@adicionar');
 });
 
-Route::group(['prefix' => 'disciplina'], function() {
+Route::prefix('disciplina')->group(function() {
 	Route::get('/getAll', 'DisciplinasController@getAll');
 	Route::get('/save', 'DisciplinasController@adicionar');
 });
 
-Route::group(['prefix' => 'subdisciplina'], function() {
+Route::prefix('subdisciplina')->group(function() {
 	Route::get('/getAll', 'SubdisciplinasController@getAll');
 	Route::get('/save', 'SubdisciplinasController@adicionar');
+});
+
+Route::prefix('professor')->group(function() {
+	Route::get('/getAll', 'ProfessoresController@getAll');
+	Route::get('/save', 'ProfessoresController@adicionar');
+});
+
+Route::prefix('momento')->group(function() {
+	Route::get('/getAll', 'MomentosController@getAll');
+	Route::get('/save', 'MomentosController@adicionar');
+});
+
+Route::prefix('recurso')->group(function() {
+	Route::get('/getAll', 'RecursosController@getAll');
+	Route::get('/save', 'RecursosController@adicionar');
 });

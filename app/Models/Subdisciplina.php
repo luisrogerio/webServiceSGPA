@@ -11,4 +11,9 @@ class Subdiscplina extends Model
     protected $fillable = [
         'nome'
     ];
+
+    public function disciplina()
+    {
+      return $this->belongsTo('App\Models\Disciplina', 'disciplinas_id');
+    }
 }
