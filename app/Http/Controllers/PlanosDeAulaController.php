@@ -15,7 +15,7 @@ class PlanosDeAulaController extends Controller
 
   public function getAll(){
     $planosDeAula = $this->planoDeAula->orderBy('titulo')->get();
-    return response()->json($planosDeAula->toArray(), 200);
+    return response()->json(["planoDeAula" => $planosDeAula->toArray()], 200);
   }
 
   public function adicionar(Request $request){

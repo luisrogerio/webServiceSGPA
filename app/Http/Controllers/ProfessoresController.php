@@ -16,7 +16,12 @@ class ProfessoresController extends Controller
 
   public function getAll(){
     $professores = $this->professor->orderBy('nome')->get();
-    return response()->json($professores->toArray(), 200);
+    return response()->json(["professor" => $professores->toArray()], 200);
+  }
+
+  public function visualizar($id){
+    $professor = $this->professor->findOrFail($id);
+    return response(["professor" => $professor], 200);
   }
 
   public function adicionar(Request $request){
