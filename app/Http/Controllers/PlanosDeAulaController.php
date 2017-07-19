@@ -23,4 +23,10 @@ class PlanosDeAulaController extends Controller
     return response(['message' => 'sucesso', 200]);
   }
 
+  public function editar(Request $request, $id){
+    $this->planoDeAula = $this->planoDeAula->findOrFail($id);
+      $this->planoDeAula->update($request->all());
+      return response(['message' => 'Atualizado com sucesso', 200]);
+  }
+
 }

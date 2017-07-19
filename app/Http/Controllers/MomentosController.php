@@ -20,6 +20,13 @@ class MomentosController extends Controller
 
   public function adicionar(Request $request){
     $this->momento->create($request->all());
-    return response(['message' => 'sucesso', 200]);
+    return response(['message' => 'Salvo com sucesso', 200]);
   }
+
+  public function editar(Request $request, $id){
+    $this->momento = $this->momento->findOrFail($id);
+      $this->momento->update($request->all());
+      return response(['message' => 'Atualizado com sucesso', 200]);
+  }
+
 }

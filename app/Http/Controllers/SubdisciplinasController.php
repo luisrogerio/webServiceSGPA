@@ -22,4 +22,11 @@ class SubdisciplinasController extends Controller
     $this->subdisciplina->create($request->all());
     return response(['message' => 'sucesso', 200]);
   }
+
+  public function editar(Request $request, $id){
+    $this->subdisciplina = $this->subdisciplina->findOrFail($id);
+      $this->subdisciplina->update($request->all());
+      return response(['message' => 'Atualizado com sucesso', 200]);
+  }
+
 }

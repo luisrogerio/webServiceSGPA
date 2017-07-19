@@ -22,4 +22,11 @@ class RecursosController extends Controller
     $this->recurso->create($request->all());
     return response(['message' => 'sucesso', 200]);
   }
+
+  public function editar(Request $request, $id){
+    $this->recurso = $this->recurso->findOrFail($id);
+      $this->recurso->update($request->all());
+      return response(['message' => 'Atualizado com sucesso', 200]);
+  }
+
 }

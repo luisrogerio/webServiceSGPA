@@ -20,7 +20,13 @@ class DisciplinasController extends Controller
 
   public function adicionar(Request $request){
     $this->disciplina->create($request->all());
-    return response(['message' => 'sucesso', 200]);
+    return response(['message' => 'Salvo com sucesso', 200]);
+  }
+
+  public function editar(Request $request, $id){
+    $this->disciplina = $this->disciplina->findOrFail($id);
+      $this->disciplina->update($request->all());
+      return response(['message' => 'Atualizado com sucesso', 200]);
   }
 
 }
