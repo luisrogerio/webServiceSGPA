@@ -19,10 +19,8 @@ class PlanosDeAulaController extends Controller
   }
 
   public function adicionar(Request $request){
-    if($request->method('ajax')){
-      $this->planoDeAula->create($request->all());
-      return response(['message' => 'sucesso', 200]);
-    }
+    $this->planoDeAula->create($request->all());
+    return response(['message' => 'sucesso', 200]);
   }
 
 }

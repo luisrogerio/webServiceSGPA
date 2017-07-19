@@ -19,9 +19,7 @@ class SubsubsubdisciplinasController extends Controller
   }
 
   public function adicionar(Request $request){
-    if($request->method('ajax')){
-      $this->subdisciplina->create($request->all());
-      return response(['message' => 'sucesso', 200]);
-    }
+    $this->subdisciplina->create($request->all());
+    return response(['message' => 'sucesso', 200]);
   }
 }

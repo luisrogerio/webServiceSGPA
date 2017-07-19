@@ -19,10 +19,8 @@ class DisciplinasController extends Controller
   }
 
   public function adicionar(Request $request){
-    if($request->method('ajax')){
-      $this->disciplina->create($request->all());
-      return response(['message' => 'sucesso', 200]);
-    }
+    $this->disciplina->create($request->all());
+    return response(['message' => 'sucesso', 200]);
   }
 
 }

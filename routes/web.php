@@ -17,4 +17,17 @@ Route::get('/', function () {
 		], 200);
 });
 
-Route::get('/getPlanosDeAula', 'PlanosDeAulaController@getAll');
+Route::group(['prefix' => 'planoDeAula'], function() {
+	Route::get('/getAll', 'PlanosDeAulaController@getAll');
+	Route::get('/save', 'PlanosDeAulaController@adicionar');
+});
+
+Route::group(['prefix' => 'disciplina'], function() {
+	Route::get('/getAll', 'DisciplinasController@getAll');
+	Route::get('/save', 'DisciplinasController@adicionar');
+});
+
+Route::group(['prefix' => 'subdisciplina'], function() {
+	Route::get('/getAll', 'SubdisciplinasController@getAll');
+	Route::get('/save', 'SubdisciplinasController@adicionar');
+});
