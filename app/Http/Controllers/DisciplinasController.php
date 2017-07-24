@@ -15,7 +15,7 @@ class DisciplinasController extends Controller
 
   public function getAll(){
     $disciplinas = $this->disciplina->orderBy('nome')->get();
-    return response()->json(["disciplina" => $disciplinas->toArray()], 200);
+    return response()->json($disciplinas->toArray(), 200);
   }
 
   public function adicionar(Request $request){

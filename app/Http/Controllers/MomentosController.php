@@ -15,7 +15,7 @@ class MomentosController extends Controller
 
   public function getAll(){
     $momentos = $this->momento->orderBy('nome')->get();
-    return response()->json(["momento" => $momentos->toArray()], 200);
+    return response()->json($momentos->toArray(), 200);
   }
 
   public function adicionar(Request $request){

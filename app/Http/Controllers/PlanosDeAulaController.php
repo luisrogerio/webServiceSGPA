@@ -15,12 +15,12 @@ class PlanosDeAulaController extends Controller
 
   public function getAll(){
     $planosDeAula = $this->planoDeAula->orderBy('titulo')->get();
-    return response()->json(["planoDeAula" => $planosDeAula->toArray()], 200);
+    return response()->json($planosDeAula->toArray(), 200);
   }
 
   public function visualizar($id){
     $planoDeAula = $this->planoDeAula->findOrFail($id);
-    return response(["planoDeAula" => $planoDeAula], 200);
+    return response($planoDeAula->toArray(), 200);
   }
 
   public function adicionar(Request $request){

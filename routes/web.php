@@ -32,6 +32,7 @@ Route::prefix('disciplina')->group(function() {
 
 Route::prefix('subdisciplina')->group(function() {
 	Route::get('/getAll', 'SubdisciplinasController@getAll');
+	Route::get('/getSubdisciplinasByDisciplina/{disciplinasId}', 'SubdisciplinasController@getByDisciplina');
 	Route::get('/save', 'SubdisciplinasController@adicionar');
 	Route::get('/edit/{id}', 'SubdisciplinasController@editar');
 });

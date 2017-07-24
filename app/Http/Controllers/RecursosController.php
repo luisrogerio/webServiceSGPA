@@ -15,7 +15,7 @@ class RecursosController extends Controller
 
   public function getAll(){
     $recursos = $this->recurso->orderBy('nome')->get();
-    return response()->json(["recurso" => $recursos->toArray()], 200);
+    return response()->json($recursos->toArray(), 200);
   }
 
   public function adicionar(Request $request){

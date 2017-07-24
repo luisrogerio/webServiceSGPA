@@ -15,7 +15,12 @@ class SubdisciplinasController extends Controller
 
   public function getAll(){
     $subdisciplinas = $this->subdisciplina->orderBy('nome')->get();
-    return response()->json(["subdisciplina" => $subdisciplinas->toArray()], 200);
+    return response()->json($subdisciplinas->toArray(), 200);
+  }
+
+  public function getByDisciplina($disciplinaId){
+    $subdisciplinas = $this->subdisciplina->whereDisciplinaId($disciplinaId)->get();
+    return response()->json($subdisciplinas->toArray(), 200);
   }
 
   public function adicionar(Request $request){
