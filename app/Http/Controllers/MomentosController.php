@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Momento;
+use App\Models\PlanoDeAula;
 
 class MomentosController extends Controller
 {
@@ -18,15 +19,17 @@ class MomentosController extends Controller
     return response()->json($momentos->toArray(), 200);
   }
 
-  public function adicionar(Request $request){
-    $this->momento->create($request->all());
-    return response(['message' => 'Salvo com sucesso', 200]);
+  public function adicionar(Request $request, $planoDeAulaId){
+    $planoDeAula = PlanoDeAula::findOrFail($planoDeAulaId);
+    $this->momento->fill($request->all());
+    $planoDeAula->momento()->save($this->momento);
+    return response->json([$this->momento], 200);
   }
 
   public function editar(Request $request, $id){
     $this->momento = $this->momento->findOrFail($id);
       $this->momento->update($request->all());
-      return response(['message' => 'Atualizado com sucesso', 200]);
+      return response->json([$this->momento], 200);
   }
 
 }
