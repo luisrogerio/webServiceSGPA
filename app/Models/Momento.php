@@ -16,4 +16,8 @@ class Momento extends Model
   public function planoDeAula(){
     return $this->belongsTo('App\Models\PlanoDeAula', 'planos_de_aulas_id');
   }
+
+  public function recursos(){
+    return $this->hasMany('App\Models\Recurso', 'momentos_id');
+  }
 }

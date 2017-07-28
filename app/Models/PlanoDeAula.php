@@ -14,7 +14,7 @@ class PlanoDeAula extends Model
         'descricao'
     ];
 
-    public function subdisciplinas(){
-      return $this->belongsToMany('App\Models\Subdisciplina', 'planos_de_aulas_subdisciplina', 'planos_de_aulas_id', 'subdisciplina_id');
+    public function momentos(){
+      return $this->hasMany('App\Models\Momento', 'planos_de_aulas_id');
     }
 }
