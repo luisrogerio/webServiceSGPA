@@ -23,13 +23,13 @@ class MomentosController extends Controller
     $planoDeAula = PlanoDeAula::findOrFail($planoDeAulaId);
     $this->momento->fill($request->all());
     $planoDeAula->momento()->save($this->momento);
-    return response->json([$this->momento], 200);
+    return response()->json([$this->momento], 200);
   }
 
   public function editar(Request $request, $id){
     $this->momento = $this->momento->findOrFail($id);
       $this->momento->update($request->all());
-      return response->json([$this->momento], 200);
+      return response()->json([$this->momento], 200);
   }
 
 }

@@ -24,8 +24,12 @@ class PlanosDeAulaController extends Controller
   }
 
   public function adicionar(Request $request){
-    $this->planoDeAula->create($request->all());
-    return response(['message' => 'sucesso', 200]);
+    $planoDeAula = $this->planoDeAula->create($request->all());
+    if($planoDeAula->id){
+      return response()->json([$planoDeAula], 200);
+    } else {
+      return response()->json([$request], 500);
+    }
   }
 
   public function editar(Request $request, $id){
