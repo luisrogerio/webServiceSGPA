@@ -26,7 +26,7 @@ Route::prefix('planoDeAula')->group(function() {
 
 Route::prefix('momento')->group(function() {
 	Route::get('/getAll', 'MomentosController@getAll');
-	Route::post('/save', 'MomentosController@adicionar');
+	Route::post('/save/{planoDeAulaId}', 'MomentosController@adicionar');
 	Route::post('/edit/{id}', 'MomentosController@editar');
 });
 
