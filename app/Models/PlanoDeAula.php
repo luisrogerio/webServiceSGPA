@@ -14,6 +14,8 @@ class PlanoDeAula extends Model
         'descricao'
     ];
 
+    public $timestamps = false;
+
     public function momentos(){
       return $this->hasMany('App\Models\Momento', 'planos_de_aulas_id');
     }

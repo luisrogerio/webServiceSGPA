@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\PlanoDeAula;
+use Illuminate\Support\Facades\Log;
 
 class PlanosDeAulaController extends Controller
 {
@@ -24,7 +25,8 @@ class PlanosDeAulaController extends Controller
   }
 
   public function adicionar(Request $request){
-    Log::info('O seu request é', $request);
+    Log::info('O seu request é',
+      ['request' => $request->all()]);
     $planoDeAula = $this->planoDeAula->create($request->all());
     if($planoDeAula->id){
       return response()->json([$planoDeAula], 200);

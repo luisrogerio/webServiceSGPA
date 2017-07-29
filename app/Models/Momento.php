@@ -13,6 +13,8 @@ class Momento extends Model
     'texto'
   ];
 
+  public $timestamps = false;
+
   public function planoDeAula(){
     return $this->belongsTo('App\Models\PlanoDeAula', 'planos_de_aulas_id');
   }

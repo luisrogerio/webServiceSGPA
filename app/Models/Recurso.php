@@ -8,6 +8,8 @@ class Recurso extends Model
 {
   protected $table = 'recursos';
 
+  public $timestamps = false;
+
   protected $fillable = [
       'link'
   ];
