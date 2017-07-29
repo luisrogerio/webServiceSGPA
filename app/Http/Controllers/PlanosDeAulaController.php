@@ -20,8 +20,8 @@ class PlanosDeAulaController extends Controller
   }
 
   public function visualizar($id){
-    $planoDeAula = $this->planoDeAula->findOrFail($id);
-    return response($planoDeAula->toArray(), 200);
+    $planoDeAula = $this->planoDeAula->with('momentos')->findOrFail($id);
+    return response()->json([$planoDeAula->toArray()], 200);
   }
 
   public function adicionar(Request $request){

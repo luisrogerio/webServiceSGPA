@@ -21,13 +21,14 @@ Route::prefix('planoDeAula')->group(function() {
 	Route::get('/getAll', 'PlanosDeAulaController@getAll');
 	Route::post('/save', 'PlanosDeAulaController@adicionar');
 	Route::post('/edit/{id}', 'PlanosDeAulaController@editar');
-	Route::post('/show/{id}', 'PlanosDeAulaController@visualizar');
+	Route::get('/show/{id}', 'PlanosDeAulaController@visualizar');
 });
 
 Route::prefix('momento')->group(function() {
 	Route::get('/getAll', 'MomentosController@getAll');
 	Route::post('/save/{planoDeAulaId}', 'MomentosController@adicionar');
 	Route::post('/edit/{id}', 'MomentosController@editar');
+	Route::get('/show/{id}', 'MomentosController@visualizar');
 });
 
 Route::prefix('recurso')->group(function() {
