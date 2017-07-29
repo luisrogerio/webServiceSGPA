@@ -21,24 +21,22 @@ class PlanosDeAulaController extends Controller
 
   public function visualizar($id){
     $planoDeAula = $this->planoDeAula->with('momentos')->findOrFail($id);
-    return response()->json([$planoDeAula->toArray()], 200);
+    return response()->json($planoDeAula->toArray(), 200);
   }
 
   public function adicionar(Request $request){
-    Log::info('O seu request é',
-      ['request' => $request->all()]);
     $planoDeAula = $this->planoDeAula->create($request->all());
     if($planoDeAula->id){
-      return response()->json([$planoDeAula], 200);
+      return response()->json($planoDeAula->toArray(), 200);
     } else {
-      return response()->json([$request], 500);
+      return response()->json(['msg' => 'Erro ao salvar'], 500);
     }
   }
 
   public function editar(Request $request, $id){
     $this->planoDeAula = $this->planoDeAula->findOrFail($id);
-      $this->planoDeAula->update($request->all());
-      return response(['message' => 'Atualizado com sucesso', 200]);
+    $planoDeAula = $this->planoDeAula->update($request->all());
+      return response()->json($planoDeAula->toArray(), 200);
   }
 
 }

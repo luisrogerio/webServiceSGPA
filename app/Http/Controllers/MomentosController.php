@@ -21,14 +21,14 @@ class MomentosController extends Controller
 
   public function visualizar($id){
     $momento = $this->momento->with('recursos')->findOrFail($id);
-    return response()->json([$momento->toArray()], 200);
+    return response()->json($momento->toArray(), 200);
   }
 
   public function adicionar(Request $request, $planoDeAulaId){
     $planoDeAula = PlanoDeAula::findOrFail($planoDeAulaId);
     $this->momento->fill($request->all());
     $planoDeAula->momento()->save($this->momento);
-    return response()->json([$this->momento], 200);
+    return response()->json($this->momento, 200);
   }
 
   public function editar(Request $request, $id){

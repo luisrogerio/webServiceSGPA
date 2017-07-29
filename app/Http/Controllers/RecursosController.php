@@ -19,14 +19,14 @@ class RecursosController extends Controller
   }
 
   public function adicionar(Request $request){
-    $this->recurso->create($request->all());
-    return response(['message' => 'sucesso', 200]);
+    $recurso = $this->recurso->create($request->all());
+    return response()->json($recurso->toArray(), 200);
   }
 
   public function editar(Request $request, $id){
     $this->recurso = $this->recurso->findOrFail($id);
-      $this->recurso->update($request->all());
-      return response(['message' => 'Atualizado com sucesso', 200]);
+    $recurso = $this->recurso->update($request->all());
+    return response()->json($recurso->toArray(), 200);
   }
 
 }
