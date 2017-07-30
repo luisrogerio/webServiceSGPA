@@ -33,6 +33,6 @@ Route::prefix('momento')->group(function() {
 
 Route::prefix('recurso')->group(function() {
 	Route::get('/getAll', 'RecursosController@getAll');
-	Route::post('/save', 'RecursosController@adicionar');
+	Route::post('/save/{momentoId}', 'RecursosController@adicionar');
 	Route::post('/edit/{id}', 'RecursosController@editar');
 });

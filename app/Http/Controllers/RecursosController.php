@@ -18,9 +18,11 @@ class RecursosController extends Controller
     return response()->json($recursos->toArray(), 200);
   }
 
-  public function adicionar(Request $request){
-    $recurso = $this->recurso->create($request->all());
-    return response()->json($recurso->toArray(), 200);
+  public function adicionar(Request $request, $momentoId){
+    $momento = Momento::findOrFail($momentoId);
+    $this->recurso->fill($request->all());
+    $momento->recursos()->save($this->recurso);
+    return response()->json(['message' => 'Adicionado com sucesso'], 200);
   }
 
   public function editar(Request $request, $id){
