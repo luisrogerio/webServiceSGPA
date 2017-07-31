@@ -33,8 +33,15 @@ class MomentosController extends Controller
 
   public function editar(Request $request, $id){
     $this->momento = $this->momento->findOrFail($id);
-      $this->momento->update($request->all());
-      return response()->json([$this->momento], 200);
+    $this->momento->update($request->all());
+    return response()->json([$this->momento], 200);
   }
+
+  public function deletar($id){
+      $this->momento = $this->momento->findOrFail($id);
+      if($this->momento->delete()){
+        return response()->json(["message"=>"Momento deletado com sucesso"], 200);
+      }
+    }
 
 }

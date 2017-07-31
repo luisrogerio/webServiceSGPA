@@ -31,4 +31,11 @@ class RecursosController extends Controller
     return response()->json($recurso->toArray(), 200);
   }
 
+  public function deletar($id){
+    $this->recurso = $this->recurso->findOrFail($id);
+    if($this->recurso->delete()){
+      return response()->json(["message"=>"Recurso deletado com sucesso"], 200);
+    }
+  }
+
 }

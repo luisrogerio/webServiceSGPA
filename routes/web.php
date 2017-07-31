@@ -22,6 +22,7 @@ Route::prefix('planoDeAula')->group(function() {
 	Route::post('/save', 'PlanosDeAulaController@adicionar');
 	Route::post('/edit/{id}', 'PlanosDeAulaController@editar');
 	Route::get('/show/{id}', 'PlanosDeAulaController@visualizar');
+	Route::post('/delete/{id}', 'PlanosDeAulaController@deletar');
 });
 
 Route::prefix('momento')->group(function() {
@@ -29,10 +30,12 @@ Route::prefix('momento')->group(function() {
 	Route::post('/save/{planoDeAulaId}', 'MomentosController@adicionar');
 	Route::post('/edit/{id}', 'MomentosController@editar');
 	Route::get('/show/{id}', 'MomentosController@visualizar');
+	Route::post('/delete/{id}', 'MomentosController@deletar');
 });
 
 Route::prefix('recurso')->group(function() {
 	Route::get('/getAll', 'RecursosController@getAll');
 	Route::post('/save/{momentoId}', 'RecursosController@adicionar');
 	Route::post('/edit/{id}', 'RecursosController@editar');
+	Route::post('/delete/{id}', 'RecursosController@deletar');
 });
