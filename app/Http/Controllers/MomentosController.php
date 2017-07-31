@@ -26,9 +26,8 @@ class MomentosController extends Controller
 
   public function adicionar(Request $request, $planoDeAulaId){
     $planoDeAula = PlanoDeAula::findOrFail($planoDeAulaId);
-    $this->momento->fill($request->all());
-    $planoDeAula->momentos()->save($this->momento);
-    return response()->json($this->momento, 200);
+    $momento = $planoDeAula->momentos()->create($request->all());
+    return response()->json($momento, 200);
   }
 
   public function editar(Request $request, $id){
