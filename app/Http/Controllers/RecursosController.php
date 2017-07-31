@@ -20,9 +20,8 @@ class RecursosController extends Controller
 
   public function adicionar(Request $request, $momentoId){
     $momento = Momento::findOrFail($momentoId);
-    $this->recurso->fill($request->all());
-    $momento->recursos()->save($this->recurso);
-    return response()->json(['message' => 'Adicionado com sucesso'], 200);
+    $recurso = $momento->recursos()->create($request->all());
+    return response()->json($recurso, 200);
   }
 
   public function editar(Request $request, $id){
