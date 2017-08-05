@@ -34,14 +34,14 @@ class PlanosDeAulaController extends Controller
   }
 
   public function editar(Request $request, $id){
-    $this->planoDeAula = $this->planoDeAula->findOrFail($id);
-    $planoDeAula = $this->planoDeAula->update($request->all());
+    $planoDeAula = $this->planoDeAula->findOrFail($id);
+    $planoDeAula->update($request->all());
     return response()->json($planoDeAula->toArray(), 200);
   }
 
   public function deletar($id){
-      $this->planoDeAula = $this->planoDeAula->findOrFail($id);
-      if($this->planoDeAula->delete()){
+      $planoDeAula = $this->planoDeAula->findOrFail($id);
+      if($planoDeAula->delete()){
         return response()->json(["message"=>"Plano de Aula deletado com sucesso"], 200);
       }
     }
